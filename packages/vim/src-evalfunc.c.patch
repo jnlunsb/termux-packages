@@ -5,7 +5,6 @@
  		},
  	{"ebcdic", 0 },
 +	{"android", 1},
-+	{"termux", 1},
  	{"fname_case",
  #ifndef CASE_INSENSITIVE_FILENAME
  		1
