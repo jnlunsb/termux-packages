@@ -68,10 +68,13 @@ termux_step_make_install() {
 }
 
 termux_step_create_debscripts() {
-    cat <<- EOF > ./postinst
-    #!$TERMUX_PREFIX/bin/bash
-    echo "pgvector v${TERMUX_PKG_VERSION} installed successfully!"
-    echo "To enable: psql -d <dbname> -c 'CREATE EXTENSION vector;'"
-    EOF
+    # 修改点：
+    # 1. 去掉了 <<- 中的减号，改为 <<EOF
+    # 2. 确保下面的 EOF 是顶格写的（前面没有空格）
+    cat > ./postinst <<EOF
+#!/data/data/com.termux/files/usr/bin/bash
+echo "pgvector v${TERMUX_PKG_VERSION} installed successfully!"
+echo "To enable: psql -d <dbname> -c 'CREATE EXTENSION vector;'"
+EOF
     chmod 0755 ./postinst
 }
