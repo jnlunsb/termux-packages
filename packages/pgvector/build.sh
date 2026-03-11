@@ -12,7 +12,6 @@ termux_step_pre_configure() {
     export PG_CONFIG="$TERMUX_PREFIX/bin/pg_config"
     export USE_PGXS=1
 
-    # 追加 installcheck 覆盖
     cat >> Makefile << 'EOF'
 
 # Termux: Override PGXS installcheck
@@ -26,15 +25,12 @@ termux_step_make() {
 }
 
 termux_step_make_install() {
-    # 安装 .so 文件
     install -Dm644 vector.so \
         "$TERMUX_PKG_MASSAGEDIR/$TERMUX_PREFIX/lib/postgresql/vector.so"
 
-    # 安装 SQL 文件
     install -Dm644 sql/vector--0.8.0.sql \
         "$TERMUX_PKG_MASSAGEDIR/$TERMUX_PREFIX/share/postgresql/extension/vector--0.8.0.sql"
 
-    # 安装控制文件
     if [ -f vector.control ]; then
         install -Dm644 vector.control \
             "$TERMUX_PKG_MASSAGEDIR/$TERMUX_PREFIX/share/postgresql/extension/vector.control"
