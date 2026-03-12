@@ -103,7 +103,7 @@ termux_step_make_install() {
 
 termux_step_create_debscripts() {
     cat > ./postinst <<EOF
-#!/data/data/com.termux/files/usr/bin/bash
+#!/data/data/com.xpmall/files/usr/bin/bash
 echo "pgvector v${TERMUX_PKG_VERSION} installed successfully!"
 echo "To enable: psql -d <dbname> -c 'CREATE EXTENSION vector;'"
 EOF
