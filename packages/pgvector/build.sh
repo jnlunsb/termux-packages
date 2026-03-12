@@ -58,7 +58,7 @@ termux_step_make() {
     # 实际上，Postgres 扩展通常不需要显式链接 libpostgres，只需要 -L 路径正确即可。
     # 这里的重点是不要触发任何需要运行二进制文件的步骤。
 
-    if ! $CC -shared -o vector.so $OBJS $PG_LIBS $PG_LIBS_SHARED -L$TERMUX_PREFIX/lib -L$TERMUX_PREFIX/lib/postgresql; then
+    if ! $CC -shared -o vector.so $OBJS $PG_LIBS $PG_LIBS_SHARED -L$TERMUX_PREFIX/lib -L$TERMUX_PREFIX/lib/postgresql -lm; then
         termux_error_exit "Failed to link vector.so"
     fi
 
