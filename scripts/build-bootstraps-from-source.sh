@@ -24,6 +24,115 @@ export TERMUX_ANDROID_BUILD_TOOLS_VERSION="${TERMUX_ANDROID_BUILD_TOOLS_VERSION:
 # List of packages to build (matching those in generate-bootstraps.sh)
 # Dependencies are listed first to ensure proper build order
 BOOTSTRAP_PACKAGES=(
+# ========== Core Libraries (Build First) ==========
+    "zlib"                # Compression library (many deps)
+    "libc++"              # C++ standard library
+    "libandroid-support"  # Bionic C library extensions
+    "libandroid-glob"     # glob() function support
+    "libandroid-selinux"  # SELinux support
+    "libandroid-utimes"   # futimes() etc.
+    "libandroid-shmem"    # Shared memory
+    "libandroid-spawn"    # posix_spawn
+    "libandroid-complex-math"
+    "libandroid-execinfo"
+    "libandroid-posix-semaphore"
+    "libandroid-stub"
+    "libandroid-sysv-semaphore"
+    "libandroid-wordexp"
+    "libiconv"            # Character encoding conversion
+    "ncurses"             # Terminal UI library
+    "readline"            # Command line editing
+    "libgmp"              # GNU Multiple Precision arithmetic
+    "libmpfr"             # Multiple-precision floating-point
+    "liblz4"              # LZ4 compression
+    "zstd"                # Zstandard compression
+    "libcap-ng"           # Capabilities library
+    "libpopt"             # Command line parsing
+    "libtalloc"           # Hierarchical memory allocator
+    "oniguruma"           # Regular expression library
+    "libedit"             # BSD line editor
+    "libcrypt"            # Password hashing
+    "libidn2"             # Internationalized domain names
+    "brotli"              # Brotli compression
+    "abseil-cpp"          # Google C++ library
+    "libprotobuf"         # Protocol Buffers
+    "pcre2"               # Perl Compatible Regular Expressions 2
+    "xxhash"              # Fast hash algorithm
+
+    # ========== Crypto & Security ==========
+    "ca-certificates"     # Root CA certificates
+    "openssl"             # SSL/TLS library
+    "libgcrypt"           # Cryptographic library
+    "libgnutls"           # TLS library
+    "gnupg"               # GPG encryption (provides gpgv)
+    "krb5"                # Kerberos authentication
+    "ldns"                # DNS library
+   # "termux-auth"         # Termux authentication
+
+    # ========== Network Libraries ==========
+    "libresolv-wrapper"   # DNS resolver wrapper (needed by krb5)
+    "libunistring"        # Unicode string library (needed by wget)
+    "libnghttp2"          # HTTP/2 library
+    "libnghttp3"          # HTTP/3 library
+    "libssh2"             # SSH2 library
+    "libcurl"             # URL transfer library
+
+    # ========== Package Management ==========
+    "dpkg"                # Debian package manager
+    "apt"                 # Advanced Package Tool
+   # "termux-keyring"      # Termux signing keys
+   # "termux-licenses"     # License file templates
+
+    # ========== Core Utilities ==========
+    "bash"                # Bourne Again Shell
+    "libbz2"              # bzip2 library
+    "coreutils"           # Core system utilities
+    "dash"                # Debian Almquist Shell
+    "diffutils"           # File comparison
+    "findutils"           # File finding utilities
+    "gawk"                # GNU AWK
+    "grep"                # Pattern matching
+    "gzip"                # Gzip compression
+    "less"                # File pager
+    "procps"              # Process utilities
+    "psmisc"              # Process management
+    "sed"                 # Stream editor
+    "tar"                 # Archive utility
+    "termux-exec"         # Termux exec wrapper
+   # "termux-tools"        # Termux tools
+    "util-linux"          # System utilities
+    "libuuid"             # UUID library (subpackage of util-linux)
+    "libblkid"            # Block device ID (subpackage of util-linux)
+    "libsmartcols"        # Table formatting (subpackage of util-linux)
+    "liblzma"             # XZ compression library
+
+    # ========== Additional Tools ==========
+    "ed"                  # Line editor
+    "debianutils"         # Debian utilities
+    "dos2unix"            # Text file conversion
+    "inetutils"           # Network utilities
+    "lsof"                # List open files
+    "nano"                # Text editor
+    "net-tools"           # Network tools
+    "patch"               # Patch files
+    "unzip"               # ZIP extraction
+    "android-tools"       # Android debug tools
+    "mariadb"             # MySQL database
+    "perl"                # Perl interpreter
+   # "termux-api"          # Termux API
+    "vim"                 # Vi IMproved editor
+    "wget"                # Web downloader
+    "nginx"               # Web server
+    "openssh"             # SSH client/server
+    "jq"                  # JSON processor
+    "pcre"                # Perl Compatible Regular Expressions
+    "logrotate"           # Log rotation
+    "proot"               # chroot replacement
+    # "nodejs"            # Skipped
+    # "websocat"          # Skipped (Rust build issues)
+    # "binutils-is-llvm"    # Used for checking symbols
+    "xpmall-services"
+    "runit"
     "postgresql"
     "pgvector"
 )
