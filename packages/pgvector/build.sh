@@ -84,8 +84,8 @@ termux_step_make_install() {
         termux_error_exit "ERROR: vector.so not found!"
     fi
 
-    if [ -f "sql/vector.control" ]; then
-        cp "sql/vector.control" "$PG_SHARE_DIR/"
+    if [ -f "vector.control" ]; then
+        cp "vector.control" "$PG_SHARE_DIR/"
         echo "✓ Copied vector.control"
     else
         termux_error_exit "ERROR: vector.control not found!"
