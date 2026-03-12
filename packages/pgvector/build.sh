@@ -1,6 +1,7 @@
 TERMUX_PKG_HOMEPAGE="https://github.com/pgvector/pgvector"
 TERMUX_PKG_DESCRIPTION="Open-source vector similarity search for PostgreSQL"
-TERMUX_PKG_LICENSE="LICENSE"
+TERMUX_PKG_LICENSE="PostgreSQL"
+TERMUX_PKG_LICENSE_FILE="LICENSE"
 TERMUX_PKG_MAINTAINER="Julius"
 TERMUX_PKG_VERSION="0.8.0"
 
