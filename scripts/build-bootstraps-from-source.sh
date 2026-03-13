@@ -40,6 +40,8 @@ BOOTSTRAP_PACKAGES=(
     "libandroid-sysv-semaphore"
     "libandroid-wordexp"
     "libiconv"            # Character encoding conversion
+    "libicu"
+    "libxml2"
     "ncurses"             # Terminal UI library
     "readline"            # Command line editing
     "libgmp"              # GNU Multiple Precision arithmetic
