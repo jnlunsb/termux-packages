@@ -55,6 +55,8 @@ BOOTSTRAP_PACKAGES=(
     "libedit"             # BSD line editor
     "libcrypt"            # Password hashing
     "libidn2"             # Internationalized domain names
+    "libexpat"
+    "libffi"
     "brotli"              # Brotli compression
     "abseil-cpp"          # Google C++ library
     "libprotobuf"         # Protocol Buffers
@@ -107,6 +109,7 @@ BOOTSTRAP_PACKAGES=(
     "libblkid"            # Block device ID (subpackage of util-linux)
     "libsmartcols"        # Table formatting (subpackage of util-linux)
     "liblzma"             # XZ compression library
+    "libsqlite"
 
     # ========== Additional Tools ==========
     "ed"                  # Line editor
@@ -135,8 +138,8 @@ BOOTSTRAP_PACKAGES=(
     # "binutils-is-llvm"    # Used for checking symbols
     "xpmall-services"
     "runit"
-    "postgresql"
-    "pgvector"
+    "gdbm"
+    "python"
 )
 
 # Function to build a package
